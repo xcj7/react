@@ -1,0 +1,21 @@
+ npx create-react-app 01basicreact
+  cd 01basicreact
+  npm run start
+
+
+
+
+///////////////////  With Vite   ////////////////////
+npm create vite@latest
+  cd 02basic
+  npm install
+  npm run dev
+
+
+
+///////////////   Terminal short commands   ///////////////// 
+
+
+dir //  acts like 'ls' in windows
+cd  // for change directory 
+cd .. // for returning from that directory .
