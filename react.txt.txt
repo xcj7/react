@@ -19,3 +19,7 @@ npm create vite@latest
 dir //  acts like 'ls' in windows
 cd  // for change directory 
 cd .. // for returning from that directory .
+
+
+
+ npm i react-router-dom
