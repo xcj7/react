@@ -1,14 +1,14 @@
 import { useEffect, useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+
 import './App.css'
 import { Todoprovider } from './contexts'
 import { TodoForm } from './components'
+import TodoItem from './components/Todoitem'
 
 function App() {
   const [todos,setTodos] = useState([])
   const addTodo = (todo) =>{
-    setTodos((todo)=>[{id:Date.now(),...todo},...prev])
+    setTodos((prev)=>[{id:Date.now(),...todo},...prev])
   }
 
   const updatedTodo=(id,todo)=>{
@@ -19,8 +19,8 @@ function App() {
     setTodos((prev)=>prev.filter((todo)=>todo.id !== id))
   }
 
-  const toggleComplete= (id)=>{
-    setTodos((prev)=>prev.map((prevTodo)=>prevTodo===id ? {...prevTodo,completed:!prevTodo.completed}: prevTodo))
+  const toggleComplete =(id)=>{
+    setTodos((prev)=>prev.map((prevTodo)=>prevTodo.id===id ? {...prevTodo,completed:!prevTodo.completed}: prevTodo))
   }
   useEffect(()=>{
     const todos = JSON.parse(localStorage.getItem("todos"))
@@ -45,10 +45,11 @@ function App() {
                         <TodoForm />
                     </div>
                     <div className="flex flex-wrap gap-y-3">
-                        {/*Loop and Add TodoItem here */}
+                        {/*Loop and Add TodoItem here  // () auto returns */} 
                         {todos.map((todo)=>(
                           <div key={todo.id}
                             className='w-full'>
+                              <TodoItem todo={todo} />
                           </div>
                         ))}
                     </div>
