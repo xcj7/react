@@ -24,7 +24,7 @@ export class AuthService{
             }
 
         } catch (error){
-            throw error;
+            console.log("Appwrite service :: createAccount :: error ", error);
         }
    }
 
@@ -32,11 +32,30 @@ export class AuthService{
     try{
         return await this.account.createEmailSession(email,password);
     }catch(error){
-        throw error;
+        console.log("Appwrite service :: login :: error ", error);
+    }
+   }
+
+   async getCurrentUser(){
+    try {
+        return await this.account.get();
+        
+    } catch (error) {
+        
+        console.log("Appwrite service :: getCurrentUser :: error ", error);
+    }
+    return null ;
+   }
+
+   async logout(){
+    try {
+         await this.account.deleteSessions();
+    } catch (error) {
+        console.log("Appwrite service :: logout :: error ", error);
     }
    }
 }
 
-const AuthService=new AuthService();
+const authService=new AuthService();
 
-export default AuthService
+export default authService
