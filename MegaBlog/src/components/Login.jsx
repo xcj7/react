@@ -9,7 +9,7 @@ import { useForm } from 'react-hook-form'
 function Login() {
     const navigate = useNavigate()
     const dispatch = useDispatch()
-    const {register,handleSUbmit} = useForm()
+    const {register,handleSubmit} = useForm()
     const [error,setError]=useState("");
     
     const login = async(data)=>{
@@ -50,7 +50,7 @@ function Login() {
        </p>
        {error && <p className="text-red-600 mt-8 text-center">{error}</p>}
        <form
-          onSubmit={handleSUbmit(login)}
+          onSubmit={handleSubmit(login)}
           className='mt-8'
           >
             <div className='space-y-5'>
